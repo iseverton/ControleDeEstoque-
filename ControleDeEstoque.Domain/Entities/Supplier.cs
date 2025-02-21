@@ -9,7 +9,6 @@ namespace ControleDeEstoque.Domain.Entities
 {
     public class Supplier: BaseEntity
     {
-        public int Id { get; private set; }
         public string Name { get; private set; }
         public string Document { get; private set; } // CNPJ
         public string Email { get; private set; }
@@ -21,6 +20,8 @@ namespace ControleDeEstoque.Domain.Entities
         public string Number { get; private set; }
 
         public bool IsActive { get; private set; } = true;
+
+        public ICollection<Product>? Products { get; private set; } // 1-N
 
     }
 }

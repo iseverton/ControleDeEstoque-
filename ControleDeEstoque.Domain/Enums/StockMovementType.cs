@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDeEstoque.Domain.Entities;
+namespace ControleDeEstoque.Domain.Enums;
 
-public class CategoryProduct
+public enum StockMovementType
 {
+    Entry = 1,
+    Exit = 2
 }

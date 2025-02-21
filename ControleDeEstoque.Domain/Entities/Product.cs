@@ -16,22 +16,13 @@ public class Product : BaseEntity
     public int MinimumStock { get; private set; }
     public DateTime ExpirationDate { get; private set; }
     public bool IsActive { get; private set; } = true;
-    public int CategoryProductId { get; private set; }
-    public CategoryProduct Category { get; private set; }
+
+    public ICollection<Category> Categories { get; private set; } // M-N
+
     public int SupplierId { get; private set; }
-    public Supplier Supplier { get; private set; }
+    public Supplier Supplier { get; private set; } // 1-N
 
-    public Product(string name, string barCode, Decimal price, int currentStock, int minimumStock, DateTime expirationDate, int categoryProductId, int supplierId)
-    {
-        Name = name;
-        BarCode = barCode;
-        Price = price;
-        CurrentStock = currentStock;
-        MinimumStock = minimumStock;
-        ExpirationDate = expirationDate;
-        CategoryProductId = categoryProductId;
-        SupplierId = supplierId;
-    }
-
+    public ICollection<StockMovement> StockMovements { get; private set; } // 1-N
+    public ICollection<LowStockWarnings> LowStockWarnings { get; private set; } // 1-N
 
 }
